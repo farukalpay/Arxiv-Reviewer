@@ -1,0 +1,635 @@
+{
+  "object": "review",
+  "metadata": {
+    "arxiv_id": "2508.01061v1",
+    "title": "On the Uniqueness of the $G$-equivariant Spectral Flow",
+    "authors": [
+      "Marek Izydorek",
+      "Joanna Janczewska",
+      "Maciej Starostka",
+      "Nils Waterstraat"
+    ],
+    "categories": [
+      "math.FA",
+      "math.SP"
+    ],
+    "published": "2025-08-01T20:33:04Z",
+    "license": "CC BY 4.0",
+    "pdf_url": "http://arxiv.org/pdf/2508.01061v1",
+    "pdf_sha256": "ae771e560968462bca192e9c591aaf9a004418d5a837e9c78eefd805e47b5b4a",
+    "msc_classes": [],
+    "acm_classes": []
+  },
+  "sections": [
+    {
+      "name": "Introduction & Motivation",
+      "what_to_look_for": [
+        "Clear statement of problem and goals using G-equivariant context",
+        "Connection to classical spectral flow results (Lesch, Pejsachowicz et al.)",
+        "Explanation of relevance of compact Lie group action"
+      ],
+      "assessment": [
+        {
+          "criterion": "Clear statement of problem and goals using G-equivariant context",
+          "status": "satisfied",
+          "evidence": "Abstract; p.1\u0000b32: States aim to prove uniqueness of G-equivariant spectral flow via elementary properties and to give an alternative definition via a G-equivariant Maslov index."
+        },
+        {
+          "criterion": "Connection to classical spectral flow results (Lesch, Pejsachowicz et al.)",
+          "status": "satisfied",
+          "evidence": "p.1\u0000b33: Reviews classical spectral flow, properties (Z),(C),(A),(H); cites Lesch [15] and Fitzpatrick\u0013Pejsachowicz\u0013Ciriza/Furutani [6]; Corollary 2.2 reduces to classical uniqueness."
+        },
+        {
+          "criterion": "Explanation of relevance of compact Lie group action",
+          "status": "satisfied",
+          "evidence": "p.3\u0000b35: Introduces RO(G), equivariant spectral flow (3), canonical dimension map F (4), examples where sf=0 but sf_G nontrivial (p.5)."
+        }
+      ],
+      "notes": "One minor inconsistency: Intro mentions Fitzpatrick\u0013Pejsachowicz\u0013Recht, whereas abstract and ref. [6] list Ciriza instead of Recht. Recommend consistent attribution to Ciriza, Fitzpatrick, Pejsachowicz (and Ciriza et al.) in the introduction and corroborating references."
+    },
+    {
+      "name": "Preliminaries & Definitions",
+      "what_to_look_for": [
+        "Precise definition of selfadjoint Fredholm operators",
+        "Formal definition of G-equivariant spectral flow",
+        "Restated elementary properties for equivariant case",
+        "Notation consistency throughout the paper"
+      ],
+      "assessment": [
+        {
+          "criterion": "Precise definition of selfadjoint Fredholm operators",
+          "status": "satisfied",
+          "evidence": "p.1: Defines FS(H), components FS\u0001, FSi, essential spectrum, connected components."
+        },
+        {
+          "criterion": "Formal definition of G-equivariant spectral flow",
+          "status": "satisfied",
+          "evidence": "p.3\u0000b34: Defines RO(G), equivariant spectral flow via (3) using spectral projections and G-invariant finite-dimensional eigenspaces."
+        },
+        {
+          "criterion": "Restated elementary properties for equivariant case",
+          "status": "satisfied",
+          "evidence": "p.4\u0000b35: Lists (ZG), (AG), (HG), (MG) with clear statements in RO(G)."
+        },
+        {
+          "criterion": "Notation consistency throughout the paper",
+          "status": "mostly satisfied",
+          "evidence": "Notation is coherent (L paths, E(,[a,b]), E\u0002d(T)). Q is used for a general selfadjoint invertible operator in 3.1 and for a symmetry in 3.2; this is clarified contextually."
+        }
+      ],
+      "notes": "Properties (C) is not restated equivariantly (only ZG, AG, HG, MG are used for uniqueness). This is intentional."
+    },
+    {
+      "name": "Uniqueness Theorem Statement",
+      "what_to_look_for": [
+        "Exact statement describing uniqueness characterization",
+        "Assumptions on paths, homotopies, and group actions",
+        "Comparison with non-equivariant uniqueness theorems"
+      ],
+      "assessment": [
+        {
+          "criterion": "Exact statement describing uniqueness characterization",
+          "status": "satisfied",
+          "evidence": "Theorem 2.1 (p.5\u0000b36): If \u0003bc satisfies (ZG),(AG),(HG),(MG) for all separable H, then \u0003bc=sf_G."
+        },
+        {
+          "criterion": "Assumptions on paths, homotopies, and group actions",
+          "status": "satisfied",
+          "evidence": "Path space \u001fFS(H)^G, GL(H)\u0002a FS(H)^G; G compact Lie; \u0003bc defined for any separable H; homotopies with invertible ends (HG)."
+        },
+        {
+          "criterion": "Comparison with non-equivariant uniqueness theorems",
+          "status": "satisfied",
+          "evidence": "Corollary 2.2 (p.6): Recovers Fitzpatrick\u0013Pejsachowicz\u0013Ciriza uniqueness for trivial G; discussion p.3\u0015\u0015 relates to classical sf."
+        }
+      ]
+    },
+    {
+      "name": "Proof of Uniqueness",
+      "what_to_look_for": [
+        "Logical structure and stepwise argument",
+        "Use of equivariant homotopy principles",
+        "Handling of compactness of G",
+        "Justification of every implication and equivalence"
+      ],
+      "assessment": [
+        {
+          "criterion": "Logical structure and stepwise argument",
+          "status": "satisfied",
+          "evidence": "Section 3 (p.6\u001316): (3.1) Cogredient parametrix in FS\u0001 (Thm 3.1) and FSi (Thm 3.2 with three-step proof); (3.2) G-equivariant approximation (Lemma 3.3); (3.3) (OG) invariance; (3.4) finite-dimensional approximation (Lemma 3.7) leading to formula (17)."
+        },
+        {
+          "criterion": "Use of equivariant homotopy principles",
+          "status": "satisfied",
+          "evidence": "(HG) used repeatedly: Lemma 3.6 to replace L by conjugate; Lemma 3.7 via homotopy h(s,\u001args); (OG) derived using (HG) on isotypical components (p.12\u0013\u0014)."
+        },
+        {
+          "criterion": "Handling of compactness of G",
+          "status": "satisfied",
+          "evidence": "Uses existence of finite-dimensional subrepresentations for compact group actions (Lemma 3.3 citing [10]); isotypical decomposition R_H and components V\u0012W (Lemma 3.4)."
+        },
+        {
+          "criterion": "Justification of every implication and equivalence",
+          "status": "mostly satisfied",
+          "evidence": "Bundle-lifting argument in Thm 3.2 is detailed (local sections \u0013\u0013_S, image properties (14), pullback bundle over I); finite-dimensional approximation carefully shows endpoint invertibility. Minor citation issue: contractibility of O(H_\u000bd)^G attributed to Kuiper 'cf. [14]' (in preparation) rather than classical Kuiper (should cite original)."
+        }
+      ],
+      "notes": "The proof within FSi(H)^G (Thm 3.2) is concise yet self-contained enough for experts; some steps refer to [13] for more details."
+    },
+    {
+      "name": "G-equivariant Maslov Index Construction",
+      "what_to_look_for": [
+        "Definition of the equivariant Maslov index",
+        "Proof of equivalence between Maslov index and spectral flow",
+        "Examples or illustrative sketches linking both concepts"
+      ],
+      "assessment": [
+        {
+          "criterion": "Definition of the equivariant Maslov index",
+          "status": "satisfied",
+          "evidence": "Section 4.1 (p.16\u0018): Uses A_\u0003b3 unbounded operators (21) on L2(I,E); defines \u0003bc^G_Mas(\u0003b3,W)=sf_G(A_\u0003b3) (Def. 4.1)."
+        },
+        {
+          "criterion": "Proof of equivalence between Maslov index and spectral flow",
+          "status": "satisfied",
+          "evidence": "Theorem 4.3 (p.18\u0013\u0019): For \u0003b3=graph(L_\u000bb), W=H\u0000d7{0}, shows \u0003bc(L)=\u0003bc^G_Mas(\u0003b3,W) by verifying (ZG),(AG),(HG),(MG) and invoking Theorem 2.1."
+        },
+        {
+          "criterion": "Examples or illustrative sketches linking both concepts",
+          "status": "satisfied",
+          "evidence": "Section 4.3 (p.20\u0013\u0014): Z2-example where classical Maslov index vanishes while equivariant one encodes sf(M) in the second coordinate under \u0003c6:RO(Z2)\u000b7Z."
+        }
+      ],
+      "notes": "Finite-dimensional computation in (MG) uses explicit solution of Ju'=\u0003bc and the tan correspondence; clear and helpful."
+    },
+    {
+      "name": "Applications & Consequences",
+      "what_to_look_for": [
+        "Potential computational advantages of alternative definition",
+        "Discussion on further research directions",
+        "Any corollaries or examples showcasing uniqueness result"
+      ],
+      "assessment": [
+        {
+          "criterion": "Potential computational advantages of alternative definition",
+          "status": "partially satisfied",
+          "evidence": "Section 4 positions \u0003bc^G_Mas as an alternative characterisation; hints at accessibility via ODE viewpoint (p.16\u0018), but no explicit computational algorithms discussed."
+        },
+        {
+          "criterion": "Discussion on further research directions",
+          "status": "limited",
+          "evidence": "Brief remarks on extension to complex Hilbert spaces (p.6) and relative Maslov indices (p.17). No dedicated future work section."
+        },
+        {
+          "criterion": "Any corollaries or examples showcasing uniqueness result",
+          "status": "satisfied",
+          "evidence": "Corollary 2.2 (p.6) recovers classical uniqueness; Section 4.3 provides an illustrative Z2 example."
+        }
+      ]
+    },
+    {
+      "name": "References & Context",
+      "what_to_look_for": [
+        "Accurate citation of Lesch, Pejsachowicz, Fitzpatrick, Ciriza",
+        "Up-to-date bibliography on spectral flow and equivariant topology",
+        "Proper acknowledgement of related work"
+      ],
+      "assessment": [
+        {
+          "criterion": "Accurate citation of Lesch, Pejsachowicz, Fitzpatrick, Ciriza",
+          "status": "mostly satisfied",
+          "evidence": "Abstract and refs: [15] Lesch; [6] lists Ciriza\r Fitzpatrick\r Pejsachowicz. Intro mentions 'Fitzpatrick, Pejsachowicz and Recht' once (p.2), which conflicts with [6]."
+        },
+        {
+          "criterion": "Up-to-date bibliography on spectral flow and equivariant topology",
+          "status": "satisfied",
+          "evidence": "Includes recent monograph [7] (2023), preprint [13] (2023), Waterstraat [22] (2021), equivariant spectral flow [12] (2021)."
+        },
+        {
+          "criterion": "Proper acknowledgement of related work",
+          "status": "satisfied",
+          "evidence": "Atiyah\u00018Singer [1,2], Phillips [16], Booss-Bavnbek\u0016 Lesch\u0016 Phillips [4], Furutani [9], Robbin\rSalamon [17], Cappell\rLee\rMiller [5], Segal [18]."
+        }
+      ],
+      "notes": "Citation inconsistency: The Introduction mentions Recht; the bibliography lists Ciriza. Fix by consistent attribution (Ciriza, Fitzpatrick, Pejsachowicz) in the main text and references. Also replace 'Kuiper cf. [14] (in preparation)' with a direct citation to Kuiper (1965)."
+    },
+    {
+      "name": "Overall Presentation",
+      "what_to_look_for": [
+        "Consistency in notation and terminology",
+        "Typographical accuracy and readability",
+        "Logical flow between sections"
+      ],
+      "assessment": [
+        {
+          "criterion": "Consistency in notation and terminology",
+          "status": "mostly satisfied",
+          "evidence": "Consistent symbols and properties; Q used in two roles but clarified by context; spectral projections denoted a,b]."
+        },
+        {
+          "criterion": "Typographical accuracy and readability",
+          "status": "mostly satisfied",
+          "evidence": "Readable proofs; minor typos (isomorphismus -> isomorphism; Booss-Bavnbek and Furutani; etc.)."
+        },
+        {
+          "criterion": "Logical flow between sections",
+          "status": "satisfied",
+          "evidence": "Clear progression: definitions \u0001\u0001\u0001\u0001\u0001\u0001\u0001 → theorem \u0001\u0001\u0001 → proof components \u0001\u0001\u0001 → application to Maslov index \u0001\u0001\u0001 → example."
+        }
+      ],
+      "notes": "We recommend adding a brief concluding section summarizing contributions and outlining potential directions (e.g., extensions to relative Maslov indices, bifurcation applications, and continuous-group index theory). Also fix typographical issues (e.g., isomorphism; Booss-Bavnbek and Furutani)."
+    }
+  ],
+  "checklist": [
+    {
+      "item": "Verify all definitions are internally consistent",
+      "status": "yes",
+      "comment": "Definitions of FS(H), RO(G), sf_G (3), properties (ZG),(AG),(HG),(MG) are coherent; minor Q overloading is contextually clear."
+    },
+    {
+      "item": "Check each theorem has all necessary hypotheses stated",
+      "status": "yes",
+      "comment": "Theorems 2.1, 3.1, 3.2, 4.3 state required assumptions (G compact, G-invariance, invertible endpoints where needed)."
+    },
+    {
+      "item": "Trace all references to earlier literature",
+      "status": "mostly",
+      "comment": "Citations are appropriate overall; small inconsistency: Intro credits 'Recht' while [6] lists Ciriza; Kuiper-related result should cite Kuiper directly rather than [14] (in preparation)."
+    },
+    {
+      "item": "Confirm proofs cover both connected and disconnected G when needed",
+      "status": "yes",
+      "comment": "Works for general compact Lie groups via isotypical decomposition; no connectedness assumed."
+    },
+    {
+      "item": "Ensure Maslov index section properly references symplectic geometry basics",
+      "status": "yes",
+      "comment": "Cites Robbin\nSalamon [17], Furutani [9], Booss-Bavnbek\rFurutani [3]; construction via A_\u0003b3 is standard and referenced [22]."
+    },
+    {
+      "item": "Note any possible gaps or unstated assumptions",
+      "status": "minor issues",
+      "comment": "Topology on operator groups is implicitly norm; acceptable but could be stated. Contractibility of O(H_\u0003bd)^G relies on Kuiper-type argument; provide explicit citation."
+    },
+    {
+      "item": "Assess clarity of introduction and abstract alignment with content",
+      "status": "yes",
+      "comment": "Abstract matches content: uniqueness theorem and Maslov index equivalence are delivered."
+    },
+    {
+      "item": "Flag any ambiguous notation changes across sections",
+      "status": "minor",
+      "comment": "Symbol Q used both as a general invertible selfadjoint operator (3.1) and as a symmetry (3.2); context disambiguates, but a brief remark could help."
+    },
+    {
+      "item": "Confirm conclusion summarizes findings and future work",
+      "status": "no",
+      "comment": "No dedicated conclusion; consider adding a brief summary and outlook."
+    }
+  ],
+  "likely_relevant_pages": [
+    {
+      "page": 1,
+      "priority": "high"
+    },
+    {
+      "page": 2,
+      "priority": "high"
+    },
+    {
+      "page": 3,
+      "priority": "high"
+    },
+    {
+      "page": 4,
+      "priority": "medium"
+    },
+    {
+      "page": 5,
+      "priority": "medium"
+    },
+    {
+      "page": 6,
+      "priority": "high"
+    },
+    {
+      "page": 7,
+      "priority": "high"
+    },
+    {
+      "page": 8,
+      "priority": "high"
+    },
+    {
+      "page": 9,
+      "priority": "medium"
+    },
+    {
+      "page": 10,
+      "priority": "medium"
+    },
+    {
+      "page": 11,
+      "priority": "high"
+    },
+    {
+      "page": 12,
+      "priority": "medium"
+    },
+    {
+      "page": 13,
+      "priority": "medium"
+    },
+    {
+      "page": 14,
+      "priority": "medium"
+    },
+    {
+      "page": 15,
+      "priority": "medium"
+    },
+    {
+      "page": 16,
+      "priority": "high"
+    },
+    {
+      "page": 17,
+      "priority": "high"
+    },
+    {
+      "page": 18,
+      "priority": "high"
+    },
+    {
+      "page": 19,
+      "priority": "medium"
+    },
+    {
+      "page": 20,
+      "priority": "low"
+    },
+    {
+      "page": 21,
+      "priority": "low"
+    },
+    {
+      "page": 22,
+      "priority": "low"
+    },
+    {
+      "page": 23,
+      "priority": "low"
+    }
+  ],
+  "recommendations": [
+    {
+      "type": "clarification",
+      "detail": "Resolve the author inconsistency related to [6]: the Introduction mentions 'Fitzpatrick, Pejsachowicz and Recht' whereas the abstract and bibliography list 'Ciriza, Fitzpatrick, Pejsachowicz'. Ensure consistent attribution."
+    },
+    {
+      "type": "citation",
+      "detail": "In Lemma 3.5 (contractibility of O(H_\u0003bd)^G), cite the original Kuiper (1965) theorem (and its real/orthogonal analogue) directly, rather than 'cf. [14] (in preparation)'."
+    },
+    {
+      "type": "notation",
+      "detail": "Consider a brief remark distinguishing the uses of the symbol Q in Sections 3.1 (general invertible selfadjoint) and 3.2 (symmetry) to avoid potential confusion."
+    },
+    {
+      "type": "presentation",
+      "detail": "Add a short concluding section summarizing the uniqueness result and the Maslov index equivalence, and indicating potential directions (e.g., extensions to relative Maslov indices, applications to bifurcation or index theory with continuous groups)."
+    },
+    {
+      "type": "minor typos",
+      "detail": "Fix small typographical issues (e.g., 'isomorphismus' -> 'isomorphism'; 'Boo\u001df-Bavnbek' -> 'Booss-Bavnbek'; 'Furutani' spelling)."
+    }
+  ],
+  "summary": "The paper provides a clear and rigorous uniqueness characterization of the G-equivariant spectral flow via natural axioms and establishes its equivalence with a G-equivariant Maslov index for paths of graphs. The proof is well-structured, combining a cogredient parametrix, equivariant approximation, an orthogonal-conjugation invariance property, and finite-dimensional reduction. The Maslov index section is precise and connects convincingly to spectral flow. Minor issues concern a citation/attribution inconsistency for [6], a Kuiper-related reference, and small presentation points. Overall, the work is solid, timely, and suitable for publication after minor revisions.",
+  "provenance": {
+    "pipeline": {
+      "planner_model": "o3",
+      "review_model": "gpt-5",
+      "verifier_model": "o1",
+      "formatter_model": "gpt-5-nano"
+    },
+    "timestamps": {
+      "planned_at": "2025-08-08T22:13:26.150667+00:00",
+      "reviewed_at": "2025-08-08T22:13:40.699017+00:00"
+    },
+    "parameters": {
+      "temperature": 0,
+      "prompt_version": "v1",
+      "notes": ""
+    }
+  },
+  "document_structure": {
+    "pages": [
+      {
+        "page_no": 1,
+        "char_len": 2626,
+        "sha256": "49ea7745000e31dc7fd36dbe4354c3b01b5da48271b96c70fe7e2f68ce58cbf0"
+      },
+      {
+        "page_no": 2,
+        "char_len": 2474,
+        "sha256": "ad815360afa7fcf05e6df9dc7db054042d437cc7a9f1557a5a8ce1dba5a76c8e"
+      },
+      {
+        "page_no": 3,
+        "char_len": 3327,
+        "sha256": "6435c432cfd9e42eb3faab53d78297646dec28d839dca1292eab58f984e421ba"
+      },
+      {
+        "page_no": 4,
+        "char_len": 2080,
+        "sha256": "43db6c484bffbea7936fc1af26dba1a9e99defb7050863f9761c0c4bd5bf8ed4"
+      },
+      {
+        "page_no": 5,
+        "char_len": 1851,
+        "sha256": "d5d40f70c4b45463b1d972a541a0c77e97b4d5b3b3b0d5b80aaef795e521b226"
+      },
+      {
+        "page_no": 6,
+        "char_len": 3185,
+        "sha256": "3a85a346dc6f43af3e54b2c52ebb26a213fb14cd3464e0619dc1f9eb9f8d1fe1"
+      },
+      {
+        "page_no": 7,
+        "char_len": 2202,
+        "sha256": "4deed6a3bb52d7f5a6074192553cc20a2d7e28a06ca0e668d381d90cedbe832a"
+      },
+      {
+        "page_no": 8,
+        "char_len": 1646,
+        "sha256": "500f24a138fd6054e27aea954cec976a2744492591d4d9d51e714bbddd5ef6a5"
+      },
+      {
+        "page_no": 9,
+        "char_len": 2275,
+        "sha256": "275f551e673bbbc4d6d7a73c9b7695220014ddfcbd24c9229a266909c5f63b85"
+      },
+      {
+        "page_no": 10,
+        "char_len": 2499,
+        "sha256": "5cab6a97ecfecd894a883be36772318e36112954b7d1904176fbb0ed5f26b5dc"
+      },
+      {
+        "page_no": 11,
+        "char_len": 3126,
+        "sha256": "e99a0e93cc3a5298f5198cae9f876f5b61a7b397863bc17551a0fe71c48fe46d"
+      },
+      {
+        "page_no": 12,
+        "char_len": 2054,
+        "sha256": "6ee3b868bddd706da5a17635b09296eb19cd81f0aa7d95c4a96750b70ce34ea0"
+      },
+      {
+        "page_no": 13,
+        "char_len": 1534,
+        "sha256": "465794f4435910593bd4abe690a2a6d4418493f4ee336b56080c7d7d4937592a"
+      },
+      {
+        "page_no": 14,
+        "char_len": 2472,
+        "sha256": "a2f798a2a1374652b7272f553b3020f4143723213b491b18b0cd356ec1d29e2f"
+      },
+      {
+        "page_no": 15,
+        "char_len": 2213,
+        "sha256": "5ad254c6832fb46db5f3daf0440852be15831cab9577a6ea825bc31324f9977f"
+      },
+      {
+        "page_no": 16,
+        "char_len": 2742,
+        "sha256": "d4a9536bf3a6aca6b272b1e42bfed9b3211f0403f429b1a657b82c1308e70d41"
+      },
+      {
+        "page_no": 17,
+        "char_len": 2932,
+        "sha256": "f0367fd56543bbeb39018055baa5eb6eae0f39cf3e972da62d655b777f4adf96"
+      },
+      {
+        "page_no": 18,
+        "char_len": 2620,
+        "sha256": "0d03857947e289e81f3f90263cecd51a87efc12cdcc0f4e0d52c109e4495b05b"
+      },
+      {
+        "page_no": 19,
+        "char_len": 2932,
+        "sha256": "675e7166bfc7a10985a21a57340c9f5fa1490083b43afe304b7a4426a17ecac2"
+      },
+      {
+        "page_no": 20,
+        "char_len": 2349,
+        "sha256": "1cbd5687d7dffb4dd15110a43cfe558feb42df13de5499115cf278117fd562b5"
+      },
+      {
+        "page_no": 21,
+        "char_len": 2126,
+        "sha256": "e94e690339b4981fd4e7fe4ec5c42d5e537db3703c08395d0d98d53223371904"
+      },
+      {
+        "page_no": 22,
+        "char_len": 2440,
+        "sha256": "778d2a2198785ef2fcab167ec783f456f537fde1b14e969ae100501d39ea2ec5"
+      },
+      {
+        "page_no": 23,
+        "char_len": 773,
+        "sha256": "a1761e4e186089667e51052d1a7df7d3125c22730531edc9a7c5f6105984a787"
+      }
+    ]
+  },
+  "review": {
+    "executive_summary": {
+      "text": "The spectral flow is an integer-valued homotopy invariant for paths of\nselfadjoint Fredholm operators. Lesch as well as Pejsachowicz, Fitzpatrick and\nCiriza independently showed that it is uniquely characterised by its elementary\nproperties. The authors recently introduced a $G$-equivariant spectral flow for\npaths of selfadjoint Fredholm operators that are equivariant under the action\nof a compact Lie group $G$. The purpose of this paper is to show that the\n$G$-equivariant spectral flow is uniquely characterised by the same elementary\nproperties when appropriately restated. As an application we introduce an\nalternative definition of the $G$-equivariant spectral flow via a\n$G$-equivariant Maslov index."
+    },
+    "claims_matrix": {
+      "columns": [],
+      "rows": []
+    },
+    "methods_evidence_audit": {
+      "design_setup": "",
+      "statistical_validity": "",
+      "threats_to_validity": {
+        "internal": "",
+        "external": "",
+        "construct": ""
+      },
+      "reproducibility": "",
+      "if_theoretical": {
+        "definitions": "",
+        "lemmas": "",
+        "proof_gaps": "",
+        "boundary_cases": "",
+        "counterexamples": ""
+      },
+      "if_computational_ml": {
+        "splits": "",
+        "ablations": "",
+        "calibration": "",
+        "robustness": "",
+        "fairness_harms": ""
+      },
+      "if_qualitative_mixed": {
+        "sampling": "",
+        "coding_scheme": "",
+        "saturation": "",
+        "triangulation": "",
+        "reflexivity": ""
+      },
+      "if_biomedical_human": {
+        "approvals_consent": "",
+        "privacy": "",
+        "risk_mgmt": "",
+        "preregistration": ""
+      }
+    },
+    "novelty_significance": {
+      "what_is_new": "",
+      "missing_comparisons": []
+    },
+    "clarity_organization": {
+      "title_abstract_alignment": "",
+      "structure_flow": "",
+      "figures_tables_readability": "",
+      "terminology_consistency": "",
+      "ambiguities": ""
+    },
+    "limitations_risks": [],
+    "actionable_improvements": [],
+    "quality_scorecard": [],
+    "readiness_level": {
+      "status": "",
+      "justification": ""
+    },
+    "questions_to_authors": [],
+    "line_page_anchored_notes": []
+  },
+  "verification": {
+    "object": "verification",
+    "issues": [],
+    "notes": "No internal inconsistencies found.",
+    "json_validated": true
+  },
+  "arweave": {
+    "tags": [
+      {
+        "name": "arxiv_id",
+        "value": "2508.01061v1"
+      },
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      },
+      {
+        "name": "category",
+        "value": "math.FA"
+      },
+      {
+        "name": "app",
+        "value": "arxiv-superreview"
+      }
+    ]
+  }
+}
