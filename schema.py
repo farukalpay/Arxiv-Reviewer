@@ -173,6 +173,8 @@ class Metadata(graphene.ObjectType):
     categories = graphene.List(graphene.String)
     pdf_sha256 = graphene.String()
     license = graphene.String()
+    msc_classes = graphene.List(graphene.String)
+    acm_classes = graphene.List(graphene.String)
 
 class Review(graphene.ObjectType):
     executive_summary = graphene.Field(ExecutiveSummary)
