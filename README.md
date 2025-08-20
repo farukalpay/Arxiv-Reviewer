@@ -4,6 +4,10 @@ A toolkit for fetching arXiv preprints, generating structured reviews with
 OpenAI models, and optionally uploading the results to Arweave.  The project
 can now be used both as a library and as a command line tool.
 
+Set the environment variable `SCORE_LAYERS` to dampen overly generous quality
+scores.  Each additional layer further reduces the reported score.  The default
+is `2`.
+
 ## Library usage
 
 ```python
