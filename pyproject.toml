@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arxiv-reviewer"
+version = "0.1.0"
+description = "Automated arXiv paper reviewer"
+authors = [{name = "Arxiv Reviewer"}]
+requires-python = ">=3.8"
+dependencies = [
+    "requests",
+    "tqdm",
+]
+
+[project.scripts]
+arxiv-reviewer = "arxiv_reviewer:main"
