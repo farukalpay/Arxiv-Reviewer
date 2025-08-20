@@ -111,6 +111,9 @@ MODELS: Dict[str, str] = {
     "formatter": os.getenv("FORMATTER_MODEL", "gpt-5-nano"),
 }
 
+# Number of layers applied to quality scores to temper scoring generosity
+SCORE_LAYERS: int = int(os.getenv("SCORE_LAYERS", "2"))
+
 __all__ = [
     "process_papers",
     "build_arg_parser",
@@ -550,6 +553,19 @@ def ensure_deep_schema_shape(
     return assessment
 
 
+def apply_score_layers(assessment: Dict[str, Any], layers: int) -> None:
+    """Apply additional layers to dampen generous quality scores."""
+    if layers <= 1:
+        return
+    try:
+        scorecard = assessment.get("review", {}).get("quality_scorecard", [])
+        for item in scorecard:
+            score = float(item.get("score", 0.0)) / layers
+            item["score"] = max(0.0, min(1.0, score))
+    except Exception:
+        pass
+
+
 class MultiModel:
     """
     Wrapper around OpenAI models to coordinate planning, reviewing, verifying and
@@ -927,6 +943,7 @@ def process_papers(
             planned_at=planned_at,
             reviewed_at=reviewed_at,
         )
+        apply_score_layers(assessment, SCORE_LAYERS)
         if mm is not None:
             try:
                 verification = mm.verify_consistency(assessment)
