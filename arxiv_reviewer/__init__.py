@@ -111,6 +111,13 @@ MODELS: Dict[str, str] = {
     "formatter": os.getenv("FORMATTER_MODEL", "gpt-5-nano"),
 }
 
+__all__ = [
+    "process_papers",
+    "build_arg_parser",
+    "main",
+    "MODELS",
+]
+
 # Aesthetic defaults for charts
 PLOT_DPI: int = 180
 PLOT_STYLE: str = "whitegrid"
@@ -1050,6 +1057,26 @@ def build_arg_parser() -> argparse.ArgumentParser:
         "--openai-key",
         help="OpenAI API key (or set OPENAI_API_KEY env var)",
     )
+    g_openai.add_argument(
+        "--planner-model",
+        default=MODELS["planner"],
+        help="Model to use for planning",
+    )
+    g_openai.add_argument(
+        "--reviewer-model",
+        default=MODELS["reviewer"],
+        help="Model to use for reviewing",
+    )
+    g_openai.add_argument(
+        "--verifier-model",
+        default=MODELS["verifier"],
+        help="Model to use for verification",
+    )
+    g_openai.add_argument(
+        "--formatter-model",
+        default=MODELS["formatter"],
+        help="Model to use for JSON repair",
+    )
     g_arweave = p.add_argument_group("Arweave/Bundlr")
     g_arweave.add_argument(
         "--upload",
@@ -1082,6 +1109,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if args.upload and not args.bundlr_wallet:
         print("--upload requires --bundlr-wallet", file=sys.stderr)
         return 2
+    MODELS["planner"] = args.planner_model
+    MODELS["reviewer"] = args.reviewer_model
+    MODELS["verifier"] = args.verifier_model
+    MODELS["formatter"] = args.formatter_model
     return process_papers(
         category=args.category,
         num_papers=args.num_papers,
