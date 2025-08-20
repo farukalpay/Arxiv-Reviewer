@@ -119,6 +119,7 @@ __all__ = [
     "build_arg_parser",
     "main",
     "MODELS",
+    "SCORE_LAYERS",
 ]
 
 # Aesthetic defaults for charts
@@ -503,6 +504,7 @@ def ensure_deep_schema_shape(
     formatter_model: str,
     planned_at: str,
     reviewed_at: str,
+    score_layers: int,
 ) -> Dict[str, Any]:
     """Ensure that a deep assessment JSON has the correct top-level structure."""
     assessment: Dict[str, Any] = dict(obj) if obj is not None else {}
@@ -533,6 +535,7 @@ def ensure_deep_schema_shape(
     assessment["provenance"]["parameters"].setdefault("temperature", 0)
     assessment["provenance"]["parameters"].setdefault("prompt_version", "v1")
     assessment["provenance"]["parameters"].setdefault("notes", "")
+    assessment["provenance"]["parameters"]["score_layers"] = score_layers
     assessment["document_structure"].setdefault("pages", [])
     assessment["document_structure"]["pages"] = [
         {"page_no": p.page_no, "char_len": p.char_len, "sha256": p.sha256} for p in pages_meta
@@ -846,6 +849,7 @@ def process_papers(
     generate_graphql: bool,
     serve_graphql: bool,
     benchmark: bool,
+    score_layers: int = SCORE_LAYERS,
     specific_ids: Optional[List[str]] = None,
     exclude_licenses: Optional[List[str]] = None,
     date: Optional[str] = None,
@@ -942,8 +946,9 @@ def process_papers(
             formatter_model=MODELS["formatter"],
             planned_at=planned_at,
             reviewed_at=reviewed_at,
+            score_layers=score_layers,
         )
-        apply_score_layers(assessment, SCORE_LAYERS)
+        apply_score_layers(assessment, score_layers)
         if mm is not None:
             try:
                 verification = mm.verify_consistency(assessment)
@@ -1094,6 +1099,13 @@ def build_arg_parser() -> argparse.ArgumentParser:
         default=MODELS["formatter"],
         help="Model to use for JSON repair",
     )
+    g_eval = p.add_argument_group("Scoring")
+    g_eval.add_argument(
+        "--score-layers",
+        type=int,
+        default=SCORE_LAYERS,
+        help="Number of layers to temper quality scores",
+    )
     g_arweave = p.add_argument_group("Arweave/Bundlr")
     g_arweave.add_argument(
         "--upload",
@@ -1130,6 +1142,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     MODELS["reviewer"] = args.reviewer_model
     MODELS["verifier"] = args.verifier_model
     MODELS["formatter"] = args.formatter_model
+    global SCORE_LAYERS
+    SCORE_LAYERS = args.score_layers
     return process_papers(
         category=args.category,
         num_papers=args.num_papers,
@@ -1142,6 +1156,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         generate_graphql=bool(args.generate_graphql),
         serve_graphql=bool(args.serve_graphql),
         benchmark=bool(args.benchmark),
+        score_layers=SCORE_LAYERS,
         specific_ids=args.ids if args.ids else None,
         exclude_licenses=args.exclude_licenses,
         date=args.date,
