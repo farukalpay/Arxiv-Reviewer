@@ -683,6 +683,47 @@ class MultiModel:
                     return {"object": "verification", "issues": [], "notes": "verification skipped after retries"}
                 sleep_backoff(tries)
 
+    def validate_scores(self, assessment: Dict[str, Any]) -> None:
+        """Validate quality scores using the verifier model and attach suggestions."""
+        scorecard = assessment.get("review", {}).get("quality_scorecard", [])
+        if not scorecard:
+            return
+        instr = (
+            "You validate quality scores in a review.\n"
+            'Return STRICT JSON with key {"scores":[{"index":int,"suggested_score":float,"confidence":float}]}.\n'
+            "Index corresponds to the position in the provided list. No prose."
+        )
+        tries = 0
+        while True:
+            try:
+                resp = self._chat_create(
+                    model_key="verifier",
+                    messages=[
+                        {"role": "system", "content": instr},
+                        {"role": "user", "content": json.dumps(scorecard, ensure_ascii=False)},
+                    ],
+                    temperature=0.0,
+                    max_tokens=600,
+                    response_format={"type": "json_object"},
+                )
+                content = resp.choices[0].message.content or "{}"
+                data = json_loads_strict(content)
+                for entry in data.get("scores", []):
+                    idx = entry.get("index")
+                    if isinstance(idx, int) and 0 <= idx < len(scorecard):
+                        if "suggested_score" in entry:
+                            with contextlib.suppress(Exception):
+                                scorecard[idx]["openai_score"] = float(entry["suggested_score"])
+                        if "confidence" in entry:
+                            with contextlib.suppress(Exception):
+                                scorecard[idx]["confidence"] = float(entry["confidence"])
+                return
+            except Exception:
+                tries += 1
+                if tries > 2:
+                    return
+                sleep_backoff(tries)
+
     def repair_json_to_schema(self, assessment_json: Union[str, Dict[str, Any]]) -> Dict[str, Any]:
         """
         Request the formatter model to repair a potentially invalid JSON object and
@@ -950,6 +991,10 @@ def process_papers(
         )
         apply_score_layers(assessment, score_layers)
         if mm is not None:
+            try:
+                mm.validate_scores(assessment)
+            except Exception as e:
+                print(f"[warn] score validation failed for {meta.arxiv_id}: {e}")
             try:
                 verification = mm.verify_consistency(assessment)
                 assessment["verification"] = verification
